@@ -1,5 +1,5 @@
 <h2>Postagens</h2>
-
+<hr>
 {{#each postagens}}
     <div class="card mt-4">
     <div class="card-body">        
@@ -12,5 +12,10 @@
     </div>
 </div>
 {{else}}
-
+<h3>Nenhuma postagem registrada</h3>
+{{#if user}}
+<h4 class="mt-4">Registrar postagem: <a href="/admin/postagens/add" class="btn btn-success">Criar</a></h4>
+{{else}}
+<h5>Apenas admins podem registrar novas postagens</h5>
+{{/if}}
 {{/each}}
