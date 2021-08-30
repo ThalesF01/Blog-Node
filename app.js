@@ -13,6 +13,8 @@
     require("./models/Categoria")
     const Categoria = mongoose.model("categorias")
     const usuarios = require('./routes/usuario')
+    require("./models/Categoria")
+    const Usuario = mongoose.model("usuarios")
     const passport = require("passport")
     require("./config/auth")(passport)  
     const db = require("./config/db")  
@@ -76,18 +78,18 @@
 
 // Rota da pagina principal
 
-    app.get('/', (req, res)=>{
-        Postagem.find().lean().populate("categoria").sort({data:"desc"}).limit(3).then((postagens)=>{
-          res.render("index", {postagens: postagens})
+    app.get('/', (req, res)=>{        
+        Postagem.find().lean().populate("categoria").sort({data:"desc"}).limit(3).then((postagens)=>{                            
+            res.render("index", {postagens: postagens})                                                          
         }).catch((err)=>{
           req.flash("error_msg", "houve um erro ao lista na pag. inicial")
           res.redirect("/404")
-        })
+        })        
       })
 
 // Rota de pagina não encontrada
 
-    app.get("/",(req,res)=>{
+    app.get("/404",(req,res)=>{
         res.send("Erro 404")
     })
 

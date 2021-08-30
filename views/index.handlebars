@@ -4,13 +4,15 @@
   <hr class="my-4">
   <p>Aqui você vai poder ler sobre as novidades do mundo da computação</p>
   {{#if user}}
-  
+  <a class="btn btn-primary btn-lg" href="/admin">Admin</a>
   {{else}}
   <a class="btn btn-primary btn-lg" href="/usuarios/registro" role="button">Crie uma conta</a>
   {{/if}}
 </div>
 
 <hr>
+
+<h1>{{usuarios.nome}}</h1>
 
 <h2>Postagens recentes:</h2>
 {{#each postagens}}
